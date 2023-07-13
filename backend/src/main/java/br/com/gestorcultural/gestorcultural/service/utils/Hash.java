@@ -1,13 +1,14 @@
-package br.com.gestorcultural.gestorcultural.utils.hash.impl;
+package br.com.gestorcultural.gestorcultural.service.utils;
 
-import br.com.gestorcultural.gestorcultural.utils.hash.Hash;
+import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashImpl implements Hash {
-    public String generateHash(String hash) throws NoSuchAlgorithmException,
+@Service
+public interface Hash {
+    public static String generateHash(String hash) throws NoSuchAlgorithmException,
             UnsupportedEncodingException {
 
 
@@ -22,7 +23,7 @@ public class HashImpl implements Hash {
         return (hexString.toString());
     }
 
-    public boolean compareHashs(String hash1, String hash2){
+    public static boolean compareHashs(String hash1, String hash2){
         return hash1.equals(hash2);
     }
 }

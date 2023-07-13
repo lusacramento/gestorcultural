@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserTest {
+public class UserTest {
     @Autowired
     User user;
     @BeforeEach
@@ -14,7 +14,7 @@ class UserTest {
         user = this.createUser();
     }
 
-    User createUser(){
+    public User createUser(){
         User user1 = new User();
         user1.setId("001");
         user1.setName("Jordan Peele");

@@ -3,11 +3,11 @@ package br.com.gestorcultural.gestorcultural.controller.user;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -21,5 +21,11 @@ public class UserController {
     @GetMapping
     public List<User> findAll(){
         return this.userService.findAll();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public User save(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        return this.userService.save(user);
     }
 }

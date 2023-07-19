@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,6 +24,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return this.userRepository.findAll();
+    }
+
+    @Override
+    public Optional<User> findById(String id) {
+        return this.userRepository.findById(id);
     }
 
     @Override

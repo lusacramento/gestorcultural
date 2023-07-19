@@ -48,5 +48,11 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.save(user);
     }
 
-
+    @Override
+    @Transactional
+    public User findByIdAndUpdate(User user) {
+        if(!this.userRepository.existsById(user.getId()))
+            throw new NotFoundException("Usuário não encontrado!");
+        return this.userRepository.save(user);
+    }
 }

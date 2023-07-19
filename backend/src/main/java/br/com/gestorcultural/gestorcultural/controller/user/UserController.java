@@ -35,4 +35,11 @@ public class UserController {
     public User save(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return this.userService.save(user);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> findByIdAndUpdate(@PathVariable String id, @RequestBody User user){
+        user.setId(id);
+        this.userService.findByIdAndUpdate(user);
+        return ResponseEntity.ok(user);
+    }
 }

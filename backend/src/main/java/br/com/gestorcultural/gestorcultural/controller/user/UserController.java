@@ -42,4 +42,10 @@ public class UserController {
         this.userService.findByIdAndUpdate(user);
         return ResponseEntity.ok(user);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> findByIdAndRemove(@PathVariable("id") String id){
+        this.userService.findByIdAndRemove(id);
+        return ResponseEntity.noContent().build();
+    }
 }

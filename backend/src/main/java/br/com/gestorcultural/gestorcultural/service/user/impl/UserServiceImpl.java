@@ -55,4 +55,12 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("Usuário não encontrado!");
         return this.userRepository.save(user);
     }
+
+    @Override
+    @Transactional
+    public void findByIdAndRemove(String id) {
+        if(!this.userRepository.existsById(id))
+            throw new NotFoundException("Usuário não encontrado!");
+        this.userRepository.deleteById(id);
+    }
 }

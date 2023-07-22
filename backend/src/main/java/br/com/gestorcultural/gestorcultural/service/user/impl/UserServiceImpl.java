@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,8 @@ public class UserServiceImpl implements UserService {
     public User save(@NotNull User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         user.setPassword(Hash.generateHash(user.getPassword()));
         user.setHash(Hash.generateHash(new ObjectId().toString()));
+        user.setCreatedIn();
+        user.setUpdatedIn();
         if(existsByEmail(user.getEmail(), user)){
             throw new NotFoundException("Já existe usuário cadastrado com este email!");
         }
@@ -53,6 +56,8 @@ public class UserServiceImpl implements UserService {
     public User findByIdAndUpdate(User user) {
         if(!this.userRepository.existsById(user.getId()))
             throw new NotFoundException("Usuário não encontrado!");
+        user.setCreatedIn(this.userRepository.findById(user.getId()).get().getCreatedIn());
+        user.setUpdatedIn();
         return this.userRepository.save(user);
     }
 

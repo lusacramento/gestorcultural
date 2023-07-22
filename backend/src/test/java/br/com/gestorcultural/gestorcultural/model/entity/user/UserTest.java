@@ -118,4 +118,13 @@ public class UserTest {
         this.user.setIsValid(true);
         assertEquals(false, this.user.getIsAdmin());
     }
+
+    @Test
+    void setUpdatedIn() throws InterruptedException {
+        User userBefore = user;
+        new Thread();
+        Thread.sleep(1000);
+        user.setUpdatedIn();
+        assertNotEquals(userBefore.getCreatedIn(), this.user.getUpdateIn());
+    }
 }

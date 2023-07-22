@@ -4,6 +4,7 @@ import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
@@ -22,9 +23,29 @@ public class UserController {
         return this.userService.findAll();
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<User> findById(@PathVariable("id") String id){
+        return this.userService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         return this.userService.save(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> findByIdAndUpdate(@PathVariable String id, @RequestBody User user){
+        user.setId(id);
+        this.userService.findByIdAndUpdate(user);
+        return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> findByIdAndRemove(@PathVariable("id") String id){
+        this.userService.findByIdAndRemove(id);
+        return ResponseEntity.noContent().build();
     }
 }

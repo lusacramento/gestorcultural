@@ -5,7 +5,9 @@ public enum Ethnicity {
     PARDA("Parda"),
     AMARELA("Amarela"),
     INDIGENA("Indígena"),
-    BRANCA("Branca");
+    BRANCA("Branca"),
+    OUTRA("Outra"),
+    NAO_INFORMADA("Prefiro não dizer");
 
     private String description;
 

@@ -13,9 +13,6 @@ import br.com.gestorcultural.gestorcultural.model.entity.project.team.PersonTest
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -43,7 +40,7 @@ class ProjectTest {
         project.addCollaborator("002");
         project.addCollaborator("003");
         project.setName("Teatro dos Oprimidos");
-        project.setShortDescription("Executar uma peça teatral");
+        project.setAbstractOfProject("Executar uma peça teatral");
         project.setPresentation("Apresentar uma peça teatral");
         project.setJustification("Equipe excelente");
         project.addGoal(this.goal);
@@ -77,7 +74,7 @@ class ProjectTest {
 
     @Test
     void getShortDescription() {
-        assertEquals("Executar uma peça teatral", project.getShortDescription());
+        assertEquals("Executar uma peça teatral", project.getAbstractOfProject());
     }
 
     @Test

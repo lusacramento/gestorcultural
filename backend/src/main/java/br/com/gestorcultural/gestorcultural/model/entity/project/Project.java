@@ -20,7 +20,7 @@ public class Project {
     private String owner;
     private String name;
     private List<String> collaborators = new ArrayList<String>();
-    private String shortDescription;
+    private String abstractOfProject;
     private String presentation;
     private String justification;
     private List<Goal> goals = new ArrayList<Goal>();

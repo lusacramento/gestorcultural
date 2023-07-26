@@ -10,7 +10,7 @@ import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EventTest {
+public class EventTest {
 
     private Event event;
     @BeforeEach
@@ -18,7 +18,7 @@ class EventTest {
         this.event = this.createEvent();
     }
 
-    Event createEvent() throws ParseException {
+    public Event createEvent() throws ParseException {
         Event event1 = new Event();
         event1.setId("4923");
         event1.setDescription("Aquisição de materiais");

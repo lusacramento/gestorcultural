@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PublicityTest {
+public class PublicityTest {
 
     private Publicity publicity;
 
@@ -14,7 +14,7 @@ class PublicityTest {
         this.publicity = this.createPublicity();
     }
 
-    private Publicity createPublicity() {
+    public Publicity createPublicity() {
         Publicity publicity1 = new Publicity();
         publicity1.setId("4592");
         publicity1.setDescription("Cartaz A3");

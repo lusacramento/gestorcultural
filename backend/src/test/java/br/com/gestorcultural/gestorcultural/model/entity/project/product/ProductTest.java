@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProductTest {
+public class ProductTest {
 
     private Product product;
 
@@ -14,7 +14,7 @@ class ProductTest {
         this.product = this.createProduct();
     }
 
-    private Product createProduct() {
+    public Product createProduct() {
         Product product1 = new Product();
         product1.setId("2929");
         product1.setName("Peça teatral");

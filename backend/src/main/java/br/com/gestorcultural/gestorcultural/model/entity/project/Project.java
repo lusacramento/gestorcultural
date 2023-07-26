@@ -3,7 +3,10 @@ package br.com.gestorcultural.gestorcultural.model.entity.project;
 import br.com.gestorcultural.gestorcultural.model.entity.counterpart.Counterpart;
 import br.com.gestorcultural.gestorcultural.model.entity.project.accessibility.Accessibility;
 import br.com.gestorcultural.gestorcultural.model.entity.project.democratization.Democratization;
+import br.com.gestorcultural.gestorcultural.model.entity.project.event.Event;
 import br.com.gestorcultural.gestorcultural.model.entity.project.goal.Goal;
+import br.com.gestorcultural.gestorcultural.model.entity.project.product.Product;
+import br.com.gestorcultural.gestorcultural.model.entity.project.publicity.Publicity;
 import br.com.gestorcultural.gestorcultural.model.entity.project.team.Person;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -19,6 +22,7 @@ public class Project {
     private String id;
     private String owner;
     private String name;
+    private String category;
     private List<String> collaborators = new ArrayList<String>();
     private String abstractOfProject;
     private String presentation;
@@ -28,6 +32,9 @@ public class Project {
     private List<Democratization> democratizations = new ArrayList<Democratization>();
     private List<Counterpart> counterpart = new ArrayList<Counterpart>();
     private List<Person> team = new ArrayList<Person>();
+    private List<Product> products = new ArrayList<Product>();
+    private List<Publicity> publicities = new ArrayList<Publicity>();
+    private List<Event> timeline = new ArrayList<Event>();
 
     void addCollaborator(String collaborator){
         this.collaborators.add(collaborator);
@@ -55,4 +62,18 @@ public class Project {
 
     void addPerson(Person person) { this.team.add(person); }
     void removePerson(Person person) { this.team.remove(person); }
+
+    void addProduct(Product product) { this.products.add(product); }
+
+    void removeProduct(Product product){ this.products.remove(product); }
+
+    void addPublicity(Publicity publicity) { this.publicities.add(publicity); }
+
+    void removePublicity(Publicity publicity) { this.publicities.remove(publicity);}
+
+    void addEvent(Event event) { this.timeline.add(event); }
+
+    void removeEvent(Event event) { this.timeline.remove(event); }
+
+
 }

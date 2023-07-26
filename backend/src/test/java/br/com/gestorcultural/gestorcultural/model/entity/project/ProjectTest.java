@@ -6,12 +6,20 @@ import br.com.gestorcultural.gestorcultural.model.entity.democratization.Democra
 import br.com.gestorcultural.gestorcultural.model.entity.project.accessibility.Accessibility;
 import br.com.gestorcultural.gestorcultural.model.entity.project.accessibility.AccessibilityTest;
 import br.com.gestorcultural.gestorcultural.model.entity.project.democratization.Democratization;
+import br.com.gestorcultural.gestorcultural.model.entity.project.event.Event;
+import br.com.gestorcultural.gestorcultural.model.entity.project.event.EventTest;
 import br.com.gestorcultural.gestorcultural.model.entity.project.goal.Goal;
 import br.com.gestorcultural.gestorcultural.model.entity.project.goal.GoalTest;
+import br.com.gestorcultural.gestorcultural.model.entity.project.product.Product;
+import br.com.gestorcultural.gestorcultural.model.entity.project.product.ProductTest;
+import br.com.gestorcultural.gestorcultural.model.entity.project.publicity.Publicity;
+import br.com.gestorcultural.gestorcultural.model.entity.project.publicity.PublicityTest;
 import br.com.gestorcultural.gestorcultural.model.entity.project.team.Person;
 import br.com.gestorcultural.gestorcultural.model.entity.project.team.PersonTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,11 +34,21 @@ class ProjectTest {
     private AccessibilityTest accessibilityTest = new AccessibilityTest();
     private DemocratizationTest democratizationTest = new DemocratizationTest();
     private PersonTest personTest = new PersonTest();
+    private ProductTest productTest = new ProductTest();
+    private PublicityTest publicityTest = new PublicityTest();
+    private EventTest eventTest = new EventTest();
     private Goal goal = goalTest.createGoal();
     private Accessibility accessibility = this.accessibilityTest.createAccessibility();
     private Democratization democratization = this.democratizationTest.createDemocratization();
     private Counterpart counterpart = this.counterpartTest.createCounterpart();
     private Person person = this.personTest.createPerson();
+
+    private Product product = this.productTest.createProduct();
+    private Publicity publicity = this.publicityTest.createPublicity();
+    private Event event = this.eventTest.createEvent();
+
+    ProjectTest() throws ParseException {
+    }
 
     @BeforeEach
     void setUp() {
@@ -40,6 +58,7 @@ class ProjectTest {
         project.addCollaborator("002");
         project.addCollaborator("003");
         project.setName("Teatro dos Oprimidos");
+        project.setCategory("Artes Visuais");
         project.setAbstractOfProject("Executar uma peça teatral");
         project.setPresentation("Apresentar uma peça teatral");
         project.setJustification("Equipe excelente");
@@ -48,6 +67,11 @@ class ProjectTest {
         project.addDemocratization(this.democratization);
         project.addCounterpart(this.counterpart);
         project.addPerson(this.person);
+        project.addProduct(this.product);
+        project.addPublicity(this.publicity);
+        project.addEvent(this.event);
+
+
     }
 
     @Test
@@ -66,6 +90,11 @@ class ProjectTest {
     }
 
     @Test
+    void getCategory(){
+        assertEquals("Artes Visuais", this.project.getCategory());
+    }
+
+    @Test
     void getCollaborators() {
     assertEquals("002", project.getCollaborators().get(0));
     assertEquals("003", project.getCollaborators().get(1));
@@ -73,7 +102,7 @@ class ProjectTest {
     }
 
     @Test
-    void getShortDescription() {
+    void getAbstractOfProject() {
         assertEquals("Executar uma peça teatral", project.getAbstractOfProject());
     }
 
@@ -89,46 +118,80 @@ class ProjectTest {
 
     @Test
     void getGoals() {
-        assertEquals(this.goal.getGoal(), this. project.getGoals().get(0).getGoal());
+        assertEquals(this.goal, this. project.getGoals().get(0));
     }
 
     @Test
     void getAccessibilities(){
-        assertEquals(this.accessibility.getAccessibility(), this.project.getAccessibilities().get(0).getAccessibility());
+        assertEquals(this.accessibility, this.project.getAccessibilities().get(0));
     }
 
     @Test
     void getDemocratizations(){
-        assertEquals(this.democratization.getDemocratization(), this.project.getDemocratizations().get(0).getDemocratization());
+        assertEquals(this.democratization, this.project.getDemocratizations().get(0));
     }
 
     @Test
     void getCounterpart(){
-        assertEquals(this.counterpart.getCounterpart(), this.project.getCounterpart().get(0).getCounterpart());
+        assertEquals(this.counterpart, this.project.getCounterpart().get(0));
+    }
+
+    @Test
+    void getTeam(){
+        assertEquals(this.person, this.project.getTeam().get(0));
+
+    }
+
+    @Test
+    void getProducts(){
+        assertEquals(this.product, this.project.getProducts().get(0));
+
+    }
+
+    @Test
+    void getPublicities(){
+        assertEquals(this.publicity, this.project.getPublicities().get(0));
+    }
+
+    @Test
+    void getTimeLine(){
+        assertEquals(this.event, this.project.getTimeline().get(0));
     }
 
     @Test
     void setOwner() {
+        this.project.setOwner("0365");
+        assertEquals("0365", this.project.getOwner());
     }
 
     @Test
     void setName() {
+        this.project.setName("Music In The Street");
+        assertEquals("Music In The Street", this.project.getName());
     }
 
     @Test
-    void setCollaborators() {
+    void setCategory(){
+        this.project.setCategory("Música");
+        assertEquals("Música", this.project.getCategory());
     }
 
     @Test
-    void setShortDescription() {
+    void setAbstractOfProject() {
+        this.project.setAbstractOfProject("Promover 5 shows em ruas");
+        assertEquals("Promover 5 shows em ruas", this.project.getAbstractOfProject());
     }
 
     @Test
     void setPresentation() {
+        this.project.setPresentation("Fazer acontecer!");
+        assertEquals("Fazer acontecer!", this.project.getPresentation());
     }
 
     @Test
     void setJustification() {
+        this.project.setJustification("Porque sim");
+        assertEquals("Porque sim", this.project.getJustification());
     }
 
 
@@ -199,4 +262,36 @@ class ProjectTest {
         assertEquals(0, this.project.getTeam().size());
     }
 
+    @Test
+    void addProcuct(){
+        assertEquals(1, this.project.getProducts().size());
+    }
+
+    @Test
+    void removeProduct(){
+        this.project.removeProduct(this.product);
+        assertEquals(0, this.project.getProducts().size());
+    }
+
+    @Test
+    void addPublicity(){
+        assertEquals(1, this.project.getPublicities().size());
+    }
+
+    @Test
+    void removePublicity(){
+        this.project.removePublicity(this.publicity);
+        assertEquals(0, this.project.getPublicities().size());
+    }
+
+    @Test
+    void addEvent(){
+        assertEquals(1, this.project.getTimeline().size());
+    }
+
+    @Test
+    void removeEvent(){
+        this.project.removeEvent(this.event);
+        assertEquals(0, this.project.getTimeline().size());
+    }
 }

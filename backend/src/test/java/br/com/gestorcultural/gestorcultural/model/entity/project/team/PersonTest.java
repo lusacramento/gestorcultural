@@ -30,9 +30,6 @@ public class PersonTest {
         person1.setOffice("Cenógrafo");
         person1.setQualification("Curso técnico em Cenografia");
         person1.setAssignments("Desenvolver cenários");
-        person1.setUnit("Horas");
-        person1.setQuantity(36);
-        person1.setUnitPay(100);
         return person1;
     }
 
@@ -89,26 +86,6 @@ public class PersonTest {
     @Test
     void getAssignments() {
         assertEquals("Desenvolver cenários", this.person.getAssignments());
-    }
-
-    @Test
-    void getUnit() {
-        assertEquals("Horas", this.person.getUnit());
-    }
-
-    @Test
-    void getQuantity() {
-        assertEquals(36, this.person.getQuantity());
-    }
-
-    @Test
-    void getUnitPay() {
-        assertEquals(100, this.person.getUnitPay());
-    }
-
-    @Test
-    void getTotalPay() {
-        assertEquals(3600, this.person.getTotalPay());
     }
 
     @Test
@@ -169,25 +146,5 @@ public class PersonTest {
     void setAssignments() {
         this.person.setAssignments("Atuar no primeiro ato");
         assertEquals("Atuar no primeiro ato", this.person.getAssignments());
-    }
-
-    @Test
-    void setUnit() {
-        this.person.setUnit("Cachê");
-        assertEquals("Cachê", this.person.getUnit());
-    }
-
-    @Test
-    void setQuantity() {
-        this.person.setQuantity(5);
-        assertEquals(5, this.person.getQuantity());
-    }
-
-    @Test
-    void setUnitPay() {
-
-        this.person.setUnitPay(1000);
-        assertEquals(1000, this.person.unitPay);
-        assertEquals(36000, this.person.getTotalPay());
     }
 }

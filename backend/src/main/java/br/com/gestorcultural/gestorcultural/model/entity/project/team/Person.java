@@ -20,18 +20,4 @@ public class Person {
     String office;
     String qualification;
     String assignments;
-    String unit;
-    double quantity;
-    double unitPay;
-    double totalPay;
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-        this.totalPay = quantity * this.unitPay;
-    }
-
-    public void setUnitPay(double unitPay) {
-        this.unitPay = unitPay;
-        this.totalPay = this.quantity * unitPay;
-    }
 }

@@ -7,5 +7,5 @@ import org.springframework.data.annotation.Id;
 public class Democratization {
     @Id
     private String id;
-    private String democratization;
+    private String description;
 }

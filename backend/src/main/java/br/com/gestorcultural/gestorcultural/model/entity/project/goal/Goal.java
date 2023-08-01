@@ -7,5 +7,5 @@ import org.springframework.data.annotation.Id;
 public class Goal {
     @Id
     private String id;
-    private String goal;
+    private String description;
 }

@@ -7,5 +7,5 @@ import org.springframework.data.annotation.Id;
 public class Accessibility {
     @Id
     private String id;
-    private String accessibility;
+    private String description;
 }

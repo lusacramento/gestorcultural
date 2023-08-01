@@ -7,5 +7,5 @@ import org.springframework.data.annotation.Id;
 public class Counterpart {
     @Id
     private String id;
-    private String counterpart;
+    private String description;
 }

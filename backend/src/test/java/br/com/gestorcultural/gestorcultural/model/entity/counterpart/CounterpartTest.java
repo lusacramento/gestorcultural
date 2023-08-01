@@ -16,7 +16,7 @@ public class CounterpartTest {
     public Counterpart createCounterpart() {
         Counterpart counterpart1 = new Counterpart();
         counterpart1.setId("4587");
-        counterpart1.setCounterpart("Ministrar 1 oficina.");
+        counterpart1.setDescription("Ministrar 1 oficina.");
         return counterpart1;
     }
 
@@ -27,12 +27,12 @@ public class CounterpartTest {
 
     @Test
     void getCounterpart() {
-        assertEquals("Ministrar 1 oficina.", this.counterpart.getCounterpart());
+        assertEquals("Ministrar 1 oficina.", this.counterpart.getDescription());
     }
 
     @Test
     void setCounterpart() {
-        this.counterpart.setCounterpart("Ministrar um minicurso.");
-        assertEquals("Ministrar um minicurso.", this.counterpart.getCounterpart());
+        this.counterpart.setDescription("Ministrar um minicurso.");
+        assertEquals("Ministrar um minicurso.", this.counterpart.getDescription());
     }
 }

@@ -21,19 +21,19 @@ public class GoalTest {
 
     @Test
     void getGoal() {
-        assertEquals("Dar visibilidade ao teatro do povo preto.", this.goal.getGoal());
+        assertEquals("Dar visibilidade ao teatro do povo preto.", this.goal.getDescription());
     }
 
     @Test
     void setGoal() {
-        this.goal.setGoal("Dar visibilidade ao teatro do oprimido");
-        assertEquals("Dar visibilidade ao teatro do oprimido", this.goal.getGoal());
+        this.goal.setDescription("Dar visibilidade ao teatro do oprimido");
+        assertEquals("Dar visibilidade ao teatro do oprimido", this.goal.getDescription());
     }
 
     public Goal createGoal(){
         Goal goal1 = new Goal();
         goal1.setId("7890");
-        goal1.setGoal("Dar visibilidade ao teatro do povo preto.");
+        goal1.setDescription("Dar visibilidade ao teatro do povo preto.");
         return goal1;
     }
 }

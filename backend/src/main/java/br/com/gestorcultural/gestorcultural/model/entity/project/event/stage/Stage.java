@@ -4,7 +4,7 @@ public enum Stage {
     PRE("Pré-Produção"),
     DIVULGATION("Divulgação"),
     PRODUCTION("Produção"),
-    POS("Pós-Produção");
+    POST("Pós-Produção");
 
     private String description;
 

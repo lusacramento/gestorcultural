@@ -1,10 +1,13 @@
 package br.com.gestorcultural.gestorcultural.controller.user;
 
+import br.com.gestorcultural.gestorcultural.model.dto.user.UserDTO;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
@@ -13,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@Validated
 public class UserController {
 
     @Autowired
@@ -32,8 +36,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        return this.userService.save(user);
+    public User save(@RequestBody @Valid UserDTO userDto) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        return this.userService.save(userDto.toEntity());
     }
 
     @PutMapping("/{id}")

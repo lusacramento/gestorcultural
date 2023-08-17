@@ -1,13 +1,16 @@
-package br.com.gestorcultural.gestorcultural.model.entity.user.rule;
+package br.com.gestorcultural.gestorcultural.model.entity.user.role;
 
-public enum UserRule {
+public enum UserRole {
     ADMIN("Administrador"),
-    PROPONENT("Proponente"),
-    COLLABORATOR("Colaborador");
+    USER("Usuário");
 
-    private String description;
+    private final String description;
 
-    public UserRule(String description){
-        this.description = 
+    UserRole(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

@@ -1,11 +1,11 @@
 package br.com.gestorcultural.gestorcultural.service.user.impl;
 
-import br.com.gestorcultural.gestorcultural.exception.NotFoundException;
+import br.com.gestorcultural.gestorcultural.exception.BadRequest.BadRequestException;
+import br.com.gestorcultural.gestorcultural.exception.NotFound.NotFoundException;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.repository.UserRepository;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
 import br.com.gestorcultural.gestorcultural.service.utils.Hash;
-import org.bson.types.ObjectId;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,20 +32,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean existsByEmail(String email, User user) {
-        User response = this.userRepository.queryFirstByEmail(email, user);
-        return response != null;
+    public User findByLogin(String login) {
+        return this.userRepository.findByLogin(login);
     }
 
     @Override
     @Transactional
     public User save(@NotNull User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         user.setPassword(Hash.generateHash(user.getPassword()));
-        user.setHash(Hash.generateHash(new ObjectId().toString()));
         user.setCreatedIn();
         user.setUpdatedIn();
-        if(existsByEmail(user.getEmail(), user)){
-            throw new NotFoundException("Já existe usuário cadastrado com este email!");
+        if(findByLogin(user.getLogin()) != null){
+            throw new BadRequestException("Já existe usuário cadastrado com este email!");
         }
         return this.userRepository.save(user);
     }

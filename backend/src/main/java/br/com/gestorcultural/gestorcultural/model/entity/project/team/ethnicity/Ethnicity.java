@@ -9,7 +9,7 @@ public enum Ethnicity {
     OUTRA("Outra"),
     NAO_INFORMADA("Prefiro não dizer");
 
-    private String description;
+    private final String description;
 
     Ethnicity(String description){
         this.description = description;

@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserService {
     List<User> findAll();
     Optional<User> findById(String id);
-    boolean existsByEmail(String Email, User user);
+    User findByLogin(String Login);
     User save(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException;
     User findByIdAndUpdate(User user);
     void findByIdAndRemove(String id);

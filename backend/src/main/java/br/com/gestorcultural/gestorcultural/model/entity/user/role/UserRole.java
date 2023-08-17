@@ -1,12 +1,12 @@
 package br.com.gestorcultural.gestorcultural.model.entity.user.role;
 
-public enum UserRule {
+public enum UserRole {
     ADMIN("Administrador"),
     USER("Usuário");
 
     private final String description;
 
-    UserRule(String description) {
+    UserRole(String description) {
         this.description = description;
     }
 

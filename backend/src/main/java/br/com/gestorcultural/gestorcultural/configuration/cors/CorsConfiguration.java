@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.configuration;
+package br.com.gestorcultural.gestorcultural.configuration.cors;
 
 import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;

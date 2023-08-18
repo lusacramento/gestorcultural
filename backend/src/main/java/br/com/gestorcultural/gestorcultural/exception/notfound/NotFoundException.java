@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.exception.NotFound;
+package br.com.gestorcultural.gestorcultural.exception.notfound;
 
 
 public class NotFoundException extends Exception {

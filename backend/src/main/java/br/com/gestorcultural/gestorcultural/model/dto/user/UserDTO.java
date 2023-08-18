@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Data
 public class UserDTO {
+    @NotBlank(message = "O email não pode estar em branco!")
     @Email(message = "Informe um email válido!")
     private String login;
 

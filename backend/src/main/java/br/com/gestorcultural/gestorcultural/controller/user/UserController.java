@@ -1,7 +1,7 @@
 package br.com.gestorcultural.gestorcultural.controller.user;
 
-import br.com.gestorcultural.gestorcultural.exception.BadRequest.BadRequestException;
-import br.com.gestorcultural.gestorcultural.exception.NotFound.NotFoundException;
+import br.com.gestorcultural.gestorcultural.exception.badrequest.BadRequestException;
+import br.com.gestorcultural.gestorcultural.exception.notfound.NotFoundException;
 import br.com.gestorcultural.gestorcultural.model.dto.user.UserDTO;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;

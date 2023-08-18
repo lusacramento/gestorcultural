@@ -1,6 +1,6 @@
 package br.com.gestorcultural.gestorcultural.exception.BadRequest;
 
-public class BadRequestException extends RuntimeException {
+public class BadRequestException extends Exception {
     private static final long serialVersionUID = 1L;
     public BadRequestException(String message) {
         super(message);

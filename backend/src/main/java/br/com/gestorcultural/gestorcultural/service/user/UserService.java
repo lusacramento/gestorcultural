@@ -1,5 +1,7 @@
 package br.com.gestorcultural.gestorcultural.service.user;
 
+import br.com.gestorcultural.gestorcultural.exception.BadRequest.BadRequestException;
+import br.com.gestorcultural.gestorcultural.exception.NotFound.NotFoundException;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,10 @@ import java.util.Optional;
 @Service
 public interface UserService {
     List<User> findAll();
-    Optional<User> findById(String id);
-    User findByLogin(String Login);
-    User save(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException;
-    User findByIdAndUpdate(User user);
-    void findByIdAndRemove(String id);
+    Optional<User> findById(String id) throws NotFoundException;
+    Optional<User> findByLogin(String Login) throws NotFoundException;
+    User save(User user) throws UnsupportedEncodingException, NoSuchAlgorithmException, BadRequestException;
+    User findByIdAndUpdate(String id, User user) throws BadRequestException;
+    void findByIdAndRemove(String id, User user) throws BadRequestException;
 
 }

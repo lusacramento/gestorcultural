@@ -1,5 +1,7 @@
 package br.com.gestorcultural.gestorcultural.controller.user;
 
+import br.com.gestorcultural.gestorcultural.exception.BadRequest.BadRequestException;
+import br.com.gestorcultural.gestorcultural.exception.NotFound.NotFoundException;
 import br.com.gestorcultural.gestorcultural.model.dto.user.UserDTO;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
@@ -28,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findById(@PathVariable("id") String id){
+    public ResponseEntity<User> findById(@PathVariable("id") String id) throws NotFoundException {
         return this.userService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -36,20 +38,18 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody @Valid UserDTO userDto) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public User save(@RequestBody @Valid UserDTO userDto) throws UnsupportedEncodingException, NoSuchAlgorithmException, BadRequestException {
         return this.userService.save(userDto.toEntity());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> findByIdAndUpdate(@PathVariable String id, @RequestBody User user){
-        user.setId(id);
-        this.userService.findByIdAndUpdate(user);
-        return ResponseEntity.ok(user);
+    public User findByIdAndUpdate(@PathVariable String id, @RequestBody @Valid UserDTO userDTO) throws BadRequestException {
+        return this.userService.findByIdAndUpdate(id, userDTO.toEntity());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> findByIdAndRemove(@PathVariable("id") String id){
-        this.userService.findByIdAndRemove(id);
+    public ResponseEntity findByIdAndRemove(@PathVariable("id") String id, @RequestBody @Valid UserDTO userDTO) throws BadRequestException {
+        this.userService.findByIdAndRemove(id, userDTO.toEntity());
         return ResponseEntity.noContent().build();
     }
 }

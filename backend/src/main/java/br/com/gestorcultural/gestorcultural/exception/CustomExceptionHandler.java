@@ -1,7 +1,7 @@
 package br.com.gestorcultural.gestorcultural.exception;
 
-import br.com.gestorcultural.gestorcultural.exception.BadRequest.BadRequestException;
-import br.com.gestorcultural.gestorcultural.exception.NotFound.NotFoundException;
+import br.com.gestorcultural.gestorcultural.exception.badrequest.BadRequestException;
+import br.com.gestorcultural.gestorcultural.exception.notfound.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -7,6 +7,7 @@ import br.com.gestorcultural.gestorcultural.repository.UserRepository;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,9 +35,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByLogin(String login) throws NotFoundException {
-        Optional<User> user = this.userRepository.findByLogin(login);
-        if (user.isEmpty()) throw new NotFoundException("Usuário não encontrado!");
+    public UserDetails findByLogin(String login) throws NotFoundException {
+        UserDetails user = this.userRepository.findByLogin(login);
+        if (user.getUsername() == null || Objects.equals(user.getUsername(), "")) throw new NotFoundException("Usuário não encontrado!");
         return user;
     }
 

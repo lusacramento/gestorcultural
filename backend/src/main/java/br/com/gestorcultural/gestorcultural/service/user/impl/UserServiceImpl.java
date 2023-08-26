@@ -36,9 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails findByLogin(String login) throws NotFoundException {
-        UserDetails user = this.userRepository.findByLogin(login);
-        if (user.getUsername() == null || Objects.equals(user.getUsername(), "")) throw new NotFoundException("Usuário não encontrado!");
-        return user;
+        return this.userRepository.findByLogin(login);
     }
 
     @Override

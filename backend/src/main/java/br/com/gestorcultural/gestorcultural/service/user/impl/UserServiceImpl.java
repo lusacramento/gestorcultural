@@ -3,7 +3,7 @@ package br.com.gestorcultural.gestorcultural.service.user.impl;
 import br.com.gestorcultural.gestorcultural.exception.badrequest.BadRequestException;
 import br.com.gestorcultural.gestorcultural.exception.notfound.NotFoundException;
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
-import br.com.gestorcultural.gestorcultural.repository.UserRepository;
+import br.com.gestorcultural.gestorcultural.repository.user.UserRepository;
 import br.com.gestorcultural.gestorcultural.service.user.UserService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

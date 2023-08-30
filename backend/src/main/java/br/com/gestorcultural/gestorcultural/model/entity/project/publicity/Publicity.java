@@ -1,9 +1,12 @@
 package br.com.gestorcultural.gestorcultural.model.entity.project.publicity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 @Data
+@NoArgsConstructor
 public class Publicity {
     @Id
     private String id;

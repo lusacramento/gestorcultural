@@ -14,7 +14,7 @@ public class PublicityTest {
         this.publicity = this.createPublicity();
     }
 
-    public Publicity createPublicity() {
+    public static Publicity createPublicity() {
         Publicity publicity1 = new Publicity();
         publicity1.setId("4592");
         publicity1.setDescription("Cartaz A3");

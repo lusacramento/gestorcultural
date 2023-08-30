@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.model.entity.counterpart;
+package br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

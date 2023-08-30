@@ -1,6 +1,6 @@
 package br.com.gestorcultural.gestorcultural.model.entity.project;
 
-import br.com.gestorcultural.gestorcultural.model.entity.counterpart.Counterpart;
+import br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart.Counterpart;
 import br.com.gestorcultural.gestorcultural.model.entity.project.accessibility.Accessibility;
 import br.com.gestorcultural.gestorcultural.model.entity.project.democratization.Democratization;
 import br.com.gestorcultural.gestorcultural.model.entity.project.event.Event;

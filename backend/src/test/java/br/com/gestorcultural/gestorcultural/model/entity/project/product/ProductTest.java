@@ -14,7 +14,7 @@ public class ProductTest {
         this.product = this.createProduct();
     }
 
-    public Product createProduct() {
+    public static Product createProduct() {
         Product product1 = new Product();
         product1.setId("2929");
         product1.setName("Peça teatral");

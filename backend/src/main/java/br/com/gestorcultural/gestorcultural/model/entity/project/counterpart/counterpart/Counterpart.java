@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.model.entity.project.product;
+package br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +8,8 @@ import org.springframework.data.annotation.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class Counterpart {
     @Id
     private String id;
-    private String name;
     private String description;
-    private double quantity;
-    private String destination;
 }

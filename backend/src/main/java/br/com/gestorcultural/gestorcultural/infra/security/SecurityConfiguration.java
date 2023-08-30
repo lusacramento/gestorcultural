@@ -36,6 +36,9 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.PUT, "/api/usuarios/*").hasRole("USER")
                         .requestMatchers(HttpMethod.DELETE, "/api/usuarios/*").hasRole("USER")
 
+                        // project
+                        .requestMatchers(HttpMethod.GET, "/api/projetos").hasRole("USER")
+                        .requestMatchers(HttpMethod.POST, "/api/projetos").hasRole("USER")
 
                         .anyRequest().authenticated()
                 )

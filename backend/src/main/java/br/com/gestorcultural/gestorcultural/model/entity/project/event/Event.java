@@ -3,7 +3,9 @@ package br.com.gestorcultural.gestorcultural.model.entity.project.event;
 import br.com.gestorcultural.gestorcultural.model.entity.project.event.stage.Stage;
 import br.com.gestorcultural.gestorcultural.model.entity.project.event.status.Status;
 import br.com.gestorcultural.gestorcultural.service.utils.date.DateOperations;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.text.ParseException;
@@ -11,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Event {
     @Id
     private String id;

@@ -1,6 +1,6 @@
 package br.com.gestorcultural.gestorcultural.model.entity.project;
 
-import br.com.gestorcultural.gestorcultural.model.entity.counterpart.Counterpart;
+import br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart.Counterpart;
 import br.com.gestorcultural.gestorcultural.model.entity.project.accessibility.Accessibility;
 import br.com.gestorcultural.gestorcultural.model.entity.project.democratization.Democratization;
 import br.com.gestorcultural.gestorcultural.model.entity.project.event.Event;
@@ -8,6 +8,8 @@ import br.com.gestorcultural.gestorcultural.model.entity.project.goal.Goal;
 import br.com.gestorcultural.gestorcultural.model.entity.project.product.Product;
 import br.com.gestorcultural.gestorcultural.model.entity.project.publicity.Publicity;
 import br.com.gestorcultural.gestorcultural.model.entity.project.team.Person;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,10 +22,13 @@ import java.util.List;
 public class Project {
     @Id
     private String id;
+    @Email
     private String owner;
+    @NotBlank
     private String name;
     private String category;
     private List<String> collaborators = new ArrayList<String>();
+    @NotBlank
     private String abstractOfProject;
     private String presentation;
     private String justification;

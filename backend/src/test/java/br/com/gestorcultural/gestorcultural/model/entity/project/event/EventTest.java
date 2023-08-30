@@ -18,7 +18,7 @@ public class EventTest {
         this.event = this.createEvent();
     }
 
-    public Event createEvent() throws ParseException {
+    public static Event createEvent() throws ParseException {
         Event event1 = new Event();
         event1.setId("4923");
         event1.setDescription("Aquisição de materiais");

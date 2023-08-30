@@ -1,5 +1,6 @@
-package br.com.gestorcultural.gestorcultural.model.entity.counterpart;
+package br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart;
 
+import br.com.gestorcultural.gestorcultural.model.entity.project.counterpart.counterpart.Counterpart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

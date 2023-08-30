@@ -17,7 +17,7 @@ public class PersonTest {
         this.person = this.createPerson();
     }
 
-    public Person createPerson() {
+    public static Person createPerson() {
         Person person1 = new Person();
         person1.setId("9182");
         person1.setProponent(false);

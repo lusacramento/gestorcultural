@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.repository;
+package br.com.gestorcultural.gestorcultural.repository.user;
 
 import br.com.gestorcultural.gestorcultural.model.entity.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

@@ -1,4 +1,4 @@
-package br.com.gestorcultural.gestorcultural.model.entity.democratization;
+package br.com.gestorcultural.gestorcultural.model.entity.project.democratization.democratization;
 
 import br.com.gestorcultural.gestorcultural.model.entity.project.democratization.Democratization;
 import org.junit.jupiter.api.BeforeEach;
